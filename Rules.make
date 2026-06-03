@@ -707,7 +707,7 @@ ifeq ($(WARNING),true)
 
   FGNU_WARNING = -Wall $(WTABS) -Wno-conversion \
 		$(ARON_GENERAL) $(ARON_UNUSED) \
-		$(GGU_INIT) -ffpe-trap=zero,invalid,overflow
+		$(GGU_INIT)
 
 #			-Wconversion #-pedantic-errors
 #			-Wconversion -Wdo-subscript
@@ -731,8 +731,8 @@ ifeq ($(DEBUG),true)
   TRAP_LIST = zero,invalid,overflow,denormal
   TRAP_LIST = zero,invalid,overflow
   FGNU_NOOPT = -g
-  #FGNU_NOOPT = -g -fbacktrace -ffpe-trap=$(TRAP_LIST)
-  FGNU_NOOPT = -g -fbacktrace -ffpe-trap=$(TRAP_LIST) $(FGNU_BOUNDS)
+  #FGNU_NOOPT = -g -fbacktrace
+  FGNU_NOOPT = -g -fbacktrace $(FGNU_BOUNDS)
 endif
 
 #AR: -ffree-line-length-none required everywhere — WW3 has long continuation lines
